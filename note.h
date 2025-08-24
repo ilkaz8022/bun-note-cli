@@ -1,14 +1,10 @@
 #ifndef NOTE_H
 #define NOTE_H
 
-typedef struct Note { 
-    const char* name; 
-    const char* format;
-    int data;
-} BNOTE;
+int createNote(char* name, char* note);
+int deleteNote(char* name);
 
-BNOTE* createNote(const char* name, const char* format, const char* note);
-BNOTE *createDateNote(const char* name, const char* format, const char* note, const char* date);
-BNOTE* deleteNote(const char* name);
+void changeNote(char* name, char* new_note);
+void changeName(char* name, char* new_name);
 
 #endif

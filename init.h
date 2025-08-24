@@ -6,14 +6,11 @@
 
 typedef struct Result {
     char* path;
-    const char* NAME;
-    int handle;
 } BINIT;
 
 BINIT* getCurrentDirectory(void);
 int changeCurrentDirectory(const char* PATH);
 static void createDirectories(void);
-void createFile(void);
-int initalDirectory(void);
+int b_init(void);
 
 #endif 

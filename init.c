@@ -1,8 +1,13 @@
+#define MAIN_DIRECTORY  ".bnote/"
+#define LOGS_DIRECTORY  ".bnote/logs"
+#define NOTES_DIRECTORY ".bnote/notes"
+
 #include "init.h"
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+
 
 BINIT* getCurrentDirectory(void)
 {
@@ -35,6 +40,7 @@ BINIT* getCurrentDirectory(void)
     }
 }
 
+
 int changeCurrentDirectory(const char* PATH)
 {
    int ch_result = chdir(PATH);
@@ -48,32 +54,41 @@ int changeCurrentDirectory(const char* PATH)
    }
 }
 
+
 static void createDirectories(void)
 {
-    const char* main_folder = ".bnote/";
-    const char* b_log = ".bnote/logs/";
-    const char* notes = ".bnote/notes/";
 
-    int d_result = mkdir(main_folder, 0777);
+    int d_result = mkdir(MAIN_DIRECTORY, 0777);
     if (d_result != 0)
     {
         perror("Error: creating directories error");
     }
     
-    int f_result = mkdir(b_log, 0777);
+    int f_result = mkdir(LOGS_DIRECTORY, 0777);
     if (f_result != 0)
     {
         perror("Error: creating directories error");
     }
 
-    int bn_result = mkdir(notes, 0777);
+    int bn_result = mkdir(NOTES_DIRECTORY, 0777);
     if (bn_result != 0)
     {
         perror("Error: creating directories error");
     }
 }
 
-void createFile()
+
+int b_init(void)
 {
-    
+    BINIT* c_path = getCurrentDirectory();
+    if (c_path == NULL)
+    {
+        perror("Error: что-то пошло не так");
+        return 1;
+    }
+
+    createDirectories();
+    return 0;
 }
+
+ 
