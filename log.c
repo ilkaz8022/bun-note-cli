@@ -36,7 +36,7 @@ void getLogs(void)
         perror("Error: change directory");
     }
     
-    FILE* fp = fopen("logs", "r");
+    FILE* fp = fopen(".bnote/logs/logs", "r");
     if (fp == NULL)
     {
         perror("Error: log file open error");
