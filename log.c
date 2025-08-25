@@ -21,8 +21,8 @@ void putLog(const char* action)
 
     time_t my_time = time(NULL);
     struct tm* now = localtime(&my_time);
-    fprintf(fp, "Date: %d.%d.%d || ", now->tm_mday, now->tm_mon + 1, now->tm_year + 1900);
-    fprintf(fp, "Time: %d:%d:%d ", now->tm_hour, now->tm_min, now->tm_sec); 
+    fprintf(fp, "%d.%d.%d || ", now->tm_mday, now->tm_mon + 1, now->tm_year + 1900);
+    fprintf(fp, "%d:%d:%d ", now->tm_hour, now->tm_min, now->tm_sec); 
     fprintf(fp, "%s\n", action);
     fclose(fp);
 }

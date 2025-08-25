@@ -4,6 +4,7 @@
 int createNote(char* name, char* note);
 int deleteNote(char* name);
 
-void changeName(char* name, char* new_name);
+void changeNoteName(char* name, char* new_name);
+void changeNote(char* name, char* new_note);
 
 #endif

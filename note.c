@@ -49,7 +49,7 @@ int deleteNote(char* name)
 }
 
 
-void changeName(char* name, char* new_name)
+void changeNoteName(char* name, char* new_name)
 {
     int ch_result = changeCurrentDirectory(NOTES_DIRECTORY);
     if (ch_result != 0)
@@ -68,6 +68,31 @@ void changeName(char* name, char* new_name)
         else 
         {
             putLog("Error: note name was changed");
+        }
+    }
+}
+
+
+void changeNote(char* name, char* new_note)
+{
+    int ch_result = changeCurrentDirectory(NOTES_DIRECTORY);
+    if (ch_result != 0)
+    {
+        putLog("Error: change directory");
+        exit(EXIT_FAILURE);
+    }
+    else 
+    {
+        FILE* fp = fopen("name", "w");
+        if (fp == NULL)
+        {
+            putLog("Error: open file");
+            perror("Error: open file");
+        }
+        else 
+        {
+            fprintf(fp, "%s\n", new_note);
+            putLog("Succes: note was changed");
         }
     }
 }
