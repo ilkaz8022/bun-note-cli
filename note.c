@@ -6,7 +6,7 @@
 #include "log.h"
 
 
-int createNote(char* name, char* note)
+int createNote(const char *name, const char *note)
 {
     FILE* fp = fopen(name, "a");
     if (fp == NULL)
@@ -24,7 +24,7 @@ int createNote(char* name, char* note)
 }
 
 
-int deleteNote(char* name)
+int deleteNote(const char *name)
 {
     int ch_result = changeCurrentDirectory(NOTES_DIRECTORY);
     if (ch_result != 0)
@@ -49,7 +49,7 @@ int deleteNote(char* name)
 }
 
 
-void changeNoteName(char* name, char* new_name)
+void changeNoteName(const char* name, const char* new_name)
 {
     int ch_result = changeCurrentDirectory(NOTES_DIRECTORY);
     if (ch_result != 0)
@@ -73,7 +73,7 @@ void changeNoteName(char* name, char* new_name)
 }
 
 
-void changeNote(char* name, char* new_note)
+void changeNote(const char* name, const char* new_note)
 {
     int ch_result = changeCurrentDirectory(NOTES_DIRECTORY);
     if (ch_result != 0)
