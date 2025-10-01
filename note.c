@@ -8,19 +8,27 @@
 
 int createNote(const char *name, const char *note)
 {
-    FILE* fp = fopen(name, "a");
-    if (fp == NULL)
+    int ch_result = changeCurrentDirectory(NOTES_DIRECTORY);
+    if (ch_result != 0)
     {
-        putLog("Error: file open");
+        putLog("Error: change directory");
         return 1;
     }
     else 
     {
-        fputs(note, fp);
-        putLog("Succes: note was created");
-        fclose(fp);
-        return 0;
-    }
+        FILE* fp = fopen(name, "a");
+        if (fp == NULL)
+        {
+            putLog("Error: file open");
+            return 1;
+        }
+        else 
+        {
+            fputs(note, fp);
+            putLog("Succes: note was created");
+            fclose(fp);
+            return 0;
+        }
 }
 
 
@@ -96,4 +104,6 @@ void changeNote(const char* name, const char* new_note)
         }
     }
 }
+
+
 
