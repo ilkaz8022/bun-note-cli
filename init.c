@@ -26,7 +26,7 @@ BINIT* getCurrentDirectory(void)
             free(result);
             return NULL;
             exit(EXIT_FAILURE);
-        }
+       }
         strcpy(result->path, cwd);
         return result;
     }
